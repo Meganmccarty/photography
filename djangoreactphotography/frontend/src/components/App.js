@@ -1,13 +1,16 @@
 import React from 'react';
+import Navbar from './Navbar.js';
+import Gallery from './Gallery.js';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>This is a test paragraph. I am learning React!</p>
-      </header>
-    </div>
-  );
+      
+        <div className="Main-container">
+          <Navbar />
+          <Gallery />
+        </div>
+      
+  )
 }
 
 export default App;

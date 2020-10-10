@@ -1,0 +1,64 @@
+body {
+    background-color: black;
+    margin: 0;
+}
+
+.Navbar {
+    background-color: blue;
+    color: white;
+    max-width: 300px;
+    padding: 20px;
+    position: fixed;
+}
+
+.Navbar li {
+    list-style-type: none;
+}
+
+.Navbar a {
+    text-decoration: none;
+    color: white;
+}
+
+.Gallery {
+    margin-left: 340px;
+    width: 80%;
+    padding: 20px;
+    background-color: white;
+}
+
+.Main-container {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    justify-content: space-between;
+}
+
+@media all and (max-width: 900px) {
+    .Main-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .Navbar {
+        display: flex;
+        flex-direction: column;
+        position: static;
+        max-width: 850px;
+        width: 100%;
+       
+    }
+
+    h1, h2, p {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .Gallery {
+        max-width: 850px;
+        width: 100%;
+        margin-left: 0;
+        
+    }
+}
