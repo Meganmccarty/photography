@@ -42,6 +42,11 @@ body {
 }
 
 #logo {
+    border: 5px solid #818181;
+    padding: 5px;
+}
+
+#logo img {
     width: 100px;
 }
 
@@ -54,21 +59,39 @@ body {
     margin-left: 340px;
     width: 80%;
     padding: 20px;
-    background-color: white;
+    background-color: #c1c1c1;
 }
 
 .categories {
-    margin: 10px;
-    border: 5px solid black;
+    margin-left: 10px;
+    margin-right: 10px;
     text-align: center;
     width: 30%;
     max-width: 450px;
     min-width: 350px;
-   
+}
+
+.Gallery h2 {
+    background-color: rgb(73, 138, 104);
+    color: rgb(240, 240, 240);
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    box-shadow: 2px 2px 15px 0px #818181;
+}
+
+.Gallery h2:hover {
+    background-color: rgb(45, 85, 64);
+}
+
+.Gallery a {
+    text-decoration: none;
 }
 
 .Gallery img {
     width: 100%;
+    box-shadow: 2px 2px 15px 0px #818181;
 }
 
 .Main-container {

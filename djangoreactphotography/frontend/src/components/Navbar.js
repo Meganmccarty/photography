@@ -64,7 +64,9 @@ class Toggle extends React.Component {
 function Navbar() {
     return (
         <div className="Navbar">
-            <img id="logo" src={logo} alt="Camera logo with a butterfly on the top left of the camera"></img>
+            <div id="logo">
+                <img src={logo} alt="Camera logo with a butterfly on the top left of the camera"></img>
+            </div>
             <h1>Megan McCarty Photography</h1>
             <Toggle />
             <nav id="nav-lg">
