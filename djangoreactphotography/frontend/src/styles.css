@@ -4,7 +4,11 @@ body {
 }
 
 .Navbar {
-    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
     color: white;
     max-width: 300px;
     padding: 20px;
@@ -13,11 +17,29 @@ body {
 
 .Navbar li {
     list-style-type: none;
+    padding: 2px;
 }
 
 .Navbar a {
     text-decoration: none;
-    color: white;
+    color: #818181;
+    transition: 0.3s;
+}
+
+.Navbar a:hover {
+    color: #f1f1f1;
+}
+
+.Navbar h1 {
+    text-align: center;
+}
+
+#menu-btn {
+    display: none;
+}
+
+#logo {
+    width: 100px;
 }
 
 .Gallery {
@@ -47,10 +69,25 @@ body {
         position: static;
         max-width: 850px;
         width: 100%;
-       
     }
 
-    h1, h2, p {
+    #nav.closed {
+        display: none;
+    }
+
+    #nav.open {
+        display: block;
+    }
+
+    #menu-btn {
+        display: inline;
+    }
+
+    #nav-lg {
+        display: none;
+    }
+
+    h1, p {
         padding-left: 20px;
         padding-right: 20px;
     }
