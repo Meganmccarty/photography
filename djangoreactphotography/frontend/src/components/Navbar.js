@@ -3,7 +3,17 @@ import logo from '../images/logo-white.png';
 
 
 class Menu extends React.Component {
-    render() {
+    render () {
+        return (
+            <ul>
+                <a href="#"><li>About</li></a>
+                <a href="#"><li>Alamy Page</li></a>
+                <a href="#"><li>Fine Art America Page</li></a>
+            </ul>
+        )
+    }
+
+    /*render() {
         return (
             <ul>
                 <a href="#"><li>Butterflies</li></a>
@@ -21,7 +31,7 @@ class Menu extends React.Component {
                 <a href="#"><li>Other</li></a>
             </ul>
         )
-    }
+    }*/
 }
 
 class Toggle extends React.Component {
