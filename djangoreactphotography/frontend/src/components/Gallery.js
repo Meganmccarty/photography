@@ -13,64 +13,60 @@ import WinterImage from '../images/IMG_4436_watermarked.jpg'
 import BuildingImage from '../images/IMG_4521_watermarked.jpg'
 import OtherImage from '../images/IMG_5418_watermarked.jpg'
 
-
-function Gallery() {
-    return (
-        <div className="Gallery">
-            <div className="categories">
-                <img src={ButterflyImage}></img>
-                <a href="#"><h2>Butterflies</h2></a>
+class ImageCard extends React.Component {
+    render() {
+        return (
+            <div className="Gallery">
+                <Image category="Butterflies" image={ButterflyImage}/>
+                <Image category="Arthropods" image={ArthropodImage}/>
+                <Image category="Animals" image={AnimalImage}/>
+                <Image category="Pets" image={PetImage}/>
+                <Image category="Plants and flowers" image={FlowerImage}/>
+                <Image category="Landscapes and Nature" image={NatureImage}/>
+                <Image category="Sunsets" image={SunsetImage}/>
+                <Image category="Weather" image={WeatherImage}/>
+                <Image category="Spring" image={SpringImage}/>
+                <Image category="Autumn" image={AutumnImage}/>
+                <Image category="Winter" image={WinterImage}/>
+                <Image category="Buildings and Architecture" image={BuildingImage}/>
+                <Image category="Other" image={OtherImage}/>
             </div>
-            <div className="categories">
-                <img src={ArthropodImage}></img>
-                <h2>Arthropods</h2>
-            </div>
-            <div className="categories">
-                <img src={AnimalImage}></img>
-                <h2>Animals</h2>
-            </div>
-            <div className="categories">
-                <img src={PetImage}></img>
-                <h2>Pets</h2>
-            </div>
-            <div className="categories">
-                <img src={FlowerImage}></img>
-                <h2>Plants and Flowers</h2>
-            </div>
-            <div className="categories">
-                <img src={NatureImage}></img>
-                <h2>Landscapes and Nature</h2>
-            </div>
-            <div className="categories">
-                <img src={SunsetImage}></img>
-                <h2>Sunsets</h2>
-            </div>
-            <div className="categories">
-                <img src={WeatherImage}></img>
-                <h2>Weather</h2>
-            </div>
-            <div className="categories">
-                <img src={SpringImage}></img>
-                <h2>Spring</h2>
-            </div>
-            <div className="categories">
-                <img src={AutumnImage}></img>
-                <h2>Autumn</h2>
-            </div>
-            <div className="categories">
-                <img src={WinterImage}></img>
-                <h2>Winter</h2>
-            </div>
-            <div className="categories">
-                <img src={BuildingImage}></img>
-                <h2>Buildings and Architecture</h2>
-            </div>
-            <div className="categories">
-                <img src={OtherImage}></img>
-                <h2>Other</h2>
-            </div>
-        </div>
-    )
+        );
+    }
 }
 
-export default Gallery;
+class Image extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {isNotZoomed: true};
+        this.onMouseEnter = this.onMouseEnter.bind(this);
+        this.onMouseLeave = this.onMouseLeave.bind(this);
+    }
+
+    onMouseEnter() {
+        this.setState(state => ({
+            isNotZoomed: false
+        }));
+    }
+
+    onMouseLeave() {
+        this.setState(state => ({
+            isNotZoomed: true
+        }));
+    }
+
+    render() {
+        return (
+            <div className="categories">
+                <div className="image-shadow">
+                    <div className={this.state.isNotZoomed ? 'zoom-container not-zoomed' : 'zoom-container zoomed'}>
+                        <img src={this.props.image}></img>
+                    </div>
+                </div>
+                <a href="#"><h2 onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} className="button">{this.props.category}</h2></a>
+            </div>
+        );
+    }
+}
+
+export default ImageCard
