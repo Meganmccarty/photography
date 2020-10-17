@@ -72,6 +72,9 @@ function Navbar() {
             <nav id="nav-lg">
                 <Menu />
             </nav>
+            <footer>
+                Website and content © 2020 Megan McCarty
+            </footer>
         </div>
     )
 }
