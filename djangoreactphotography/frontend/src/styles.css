@@ -58,9 +58,20 @@ footer {
     background-color: black;
 }
 
-.Gallery {
+.About p {
+    font-size: 20px;
+}
+
+.About img {
+    width: 30%;
+}
+
+.About {
+    flex-direction: column;
+}
+
+.Gallery, .About {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
@@ -68,6 +79,10 @@ footer {
     width: 80%;
     padding: 20px;
     background-color: #c1c1c1;
+}
+
+.Gallery {
+    flex-direction: row;
 }
 
 .categories {
@@ -167,7 +182,7 @@ footer {
         padding-top: 10px;
     }
 
-    .Gallery {
+    .Gallery, .About {
         max-width: 850px;
         width: 100%;
         margin-left: 0;
