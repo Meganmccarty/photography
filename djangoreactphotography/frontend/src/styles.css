@@ -115,6 +115,10 @@ footer {
     text-decoration: none;
 }
 
+.button {
+    text-transform: capitalize;
+}
+
 .Gallery img {
     width: 100%;
     /*box-shadow: 2px 2px 15px 0px #818181;*/
