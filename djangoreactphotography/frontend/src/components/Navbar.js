@@ -1,12 +1,13 @@
 import React from 'react';
 import logo from '../images/logo-white.png';
+import { NavLink } from 'react-router-dom';
 
 
 class Menu extends React.Component {
     render () {
         return (
             <ul>
-                <a href="#"><li>About</li></a>
+                <NavLink to="/about"><li>About</li></NavLink>
                 <a href="#"><li>Alamy Page</li></a>
                 <a href="#"><li>Fine Art America Page</li></a>
             </ul>
@@ -67,7 +68,7 @@ function Navbar() {
             <div id="logo">
                 <img src={logo} alt="Camera logo with a butterfly on the top left of the camera"></img>
             </div>
-            <h1>Megan McCarty Photography</h1>
+            <NavLink to="/"><h1>Megan McCarty Photography</h1></NavLink>
             <Toggle />
             <nav id="nav-lg">
                 <Menu />
