@@ -1,9 +1,14 @@
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import include, url
 from rest_framework import routers
 from .api import PhotoViewSet
+from backend import views
 
 router = routers.DefaultRouter()
-router.register('api/photos', PhotoViewSet)
+router.register('photos', PhotoViewSet)
 
-urlpatterns = router.urls
+urlpatterns = [
+    url(r'^api/', include(router.urls)),
+    url(r'^login/$', views.api_login),
+]
