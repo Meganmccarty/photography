@@ -14,6 +14,7 @@ class PhotoSerializer(serializers.ModelSerializer):
             'alt_text',
             'date_taken',
             'location',
+            'category',
             'show',
             'alamy_url',
             'fine_art_america_url',
