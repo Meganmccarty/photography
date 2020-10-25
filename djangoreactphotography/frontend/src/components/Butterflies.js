@@ -4,12 +4,34 @@ import axios from 'axios';
 const ButterflyCard = (props) => {
     function renderAlamyButton() {
         if (props.alamyURL === null) {
-            return null
+            return (
+                <button className="red">
+                    Alamy
+                </button>
+            )
         } else {
             return (
                 <a href={props.alamyURL} target="_blank">
                     <button className="green">
                         Alamy
+                    </button>
+                </a>
+            );
+        }
+    }
+
+    function renderFFAButton() {
+        if (props.fineArtAmericaURL === null) {
+            return (
+                <button className="red">
+                    Fine Art America
+                </button>
+            )
+        } else {
+            return (
+                <a href={props.fineArtAmericaURL} target="_blank">
+                    <button className="green">
+                        Fine Art America
                     </button>
                 </a>
             );
@@ -24,6 +46,7 @@ const ButterflyCard = (props) => {
             <div className="caption">
                 <p>{props.caption}</p>
                 {renderAlamyButton()}
+                {renderFFAButton()}
             </div>
         </div> 
     )
@@ -39,7 +62,7 @@ const ButterflyPhotos = () => {
 
     const createButterflyCards = () => {
         return (
-            <div className="categories">
+            <>
                 {ButterflyPhotoInfo.map(photo => {
 
                     if(!photo){
@@ -48,21 +71,23 @@ const ButterflyPhotos = () => {
                     } else if(photo.category == 'Butterflies') {
 
                         return (
-                            <ButterflyCard
-                                image={photo.image}
-                                name={photo.name}
-                                caption={photo.caption}
-                                altText={photo.alt_text}
-                                dateTaken={photo.date_taken}
-                                category={photo.category}
-                                location={photo.location}
-                                alamyURL={photo.alamy_url}
-                                fineArtAmericaURL={photo.fine_art_america_url}
-                            />
+                            <div className="categories">
+                                <ButterflyCard
+                                    image={photo.image}
+                                    name={photo.name}
+                                    caption={photo.caption}
+                                    altText={photo.alt_text}
+                                    dateTaken={photo.date_taken}
+                                    category={photo.category}
+                                    location={photo.location}
+                                    alamyURL={photo.alamy_url}
+                                    fineArtAmericaURL={photo.fine_art_america_url}
+                                />
+                            </div>
                         )    
                     }
                 })}
-            </div>   
+            </>   
         )
     }
 
