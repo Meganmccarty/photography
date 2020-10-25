@@ -65,7 +65,7 @@ class Image extends React.Component {
                         <img src={this.props.image}></img>
                     </div>
                 </div>
-                <NavLink to={this.props.category}><h2 onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} className="button">{this.props.category}</h2></NavLink>
+                <NavLink to={this.props.category}><h2 onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} className="gallery-button green">{this.props.category}</h2></NavLink>
             </div>
         );
     }
