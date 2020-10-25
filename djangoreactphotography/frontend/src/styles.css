@@ -98,8 +98,6 @@ footer {
 }
 
 .Gallery h2 {
-    background-color: rgb(73, 138, 104);
-    color: rgb(240, 240, 240);
     margin-top: -4px;
     margin-bottom: -4px;
     padding-top: 10px;
@@ -107,16 +105,28 @@ footer {
     width: 100%;
 }
 
-.Gallery h2:hover {
-    background-color: rgb(45, 85, 64);
-}
-
 .Gallery a {
     text-decoration: none;
 }
 
-.button {
+.gallery-button {
     text-transform: capitalize;
+}
+
+.green {
+    background-color: rgb(73, 138, 104);
+    color: rgb(240, 240, 240);
+}
+
+.green:hover {
+    background-color: rgb(45, 85, 64);
+}
+
+button {
+    border: 0;
+    padding: 10px;
+    margin: 5px;
+    font-size: 20px;
 }
 
 .Gallery img {
