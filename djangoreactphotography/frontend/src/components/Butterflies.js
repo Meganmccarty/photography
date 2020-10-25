@@ -4,15 +4,11 @@ import axios from 'axios';
 const ButterflyCard = (props) => {
     function renderAlamyButton() {
         if (props.alamyURL === null) {
-            return (
-                <button>
-                    Not for sale on Alamy
-                </button>
-            );
+            return null
         } else {
             return (
                 <a href={props.alamyURL} target="_blank">
-                    <button>
+                    <button className="green">
                         Alamy
                     </button>
                 </a>
@@ -21,20 +17,15 @@ const ButterflyCard = (props) => {
     }
     
     return (
-        <div className="Gallery"> 
-            <div className= "categories">
-                <div className="image-shadow">
-                    <img src={props.image}></img>
-                </div>
-                <div className="button">
-                    {props.name}
-                    <p>{props.caption}</p>
-                </div>
+        <div>
+            <div className="image-shadow">
+                <img src={props.image}></img>
             </div>
-            <div>
+            <div className="caption">
+                <p>{props.caption}</p>
                 {renderAlamyButton()}
             </div>
-        </div>
+        </div> 
     )
 }
 
@@ -47,22 +38,23 @@ const ButterflyPhotos = () => {
     }
 
     const createButterflyCards = () => {
-        return(
-            <div>
+        return (
+            <div className="categories">
                 {ButterflyPhotoInfo.map(photo => {
 
                     if(!photo){
                         return <div>Loading..</div>
 
-                    } else {
+                    } else if(photo.category == 'Butterflies') {
 
                         return (
                             <ButterflyCard
                                 image={photo.image}
-                                name = {photo.name}
+                                name={photo.name}
                                 caption={photo.caption}
                                 altText={photo.alt_text}
                                 dateTaken={photo.date_taken}
+                                category={photo.category}
                                 location={photo.location}
                                 alamyURL={photo.alamy_url}
                                 fineArtAmericaURL={photo.fine_art_america_url}
@@ -79,44 +71,10 @@ const ButterflyPhotos = () => {
     },[])
 
     return (
-        <>
-            <div>
-                <h1>Butterflies</h1>
-            </div>
+        <div className="Gallery">
             {createButterflyCards()}
-        </>
-    )
-}
-
-export default ButterflyPhotos
-
-
-/*class ImageCard extends React.Component {
-    render() {
-        return (
-            <div className="Gallery">
-                <Image 
-                name="Eastern Tiger Swallowtail (Papilio glaucus) on joe-pye weed"
-                caption="A dark-form female Eastern Tiger Swallowtail (Papilio glaucus) nectaring on pink joe-pye weed flowers"
-                altText="A dark-form female Eastern Tiger Swallowtail (Papilio glaucus) nectaring on pink joe-pye weed flowers"
-                dateTaken="August 1, 2016"
-                location="Patriot, Indiana"
-                image={ButterflyImage}
-                />
-            </div>
-        );
-    }
-}
-
-function Image(props) {
-    return (
-        <div className="categories">
-            <div className="image-shadow">
-                <img src={props.image}></img>
-            </div>
-            <h2 className="button">{props.caption}</h2>
         </div>
     )
 }
 
-export default ImageCard*/
+export default ButterflyPhotos
