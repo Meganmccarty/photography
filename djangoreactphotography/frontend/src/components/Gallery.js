@@ -18,12 +18,12 @@ import { NavLink } from 'react-router-dom';
 class ImageCard extends React.Component {
     render() {
         return (
-            <div className="Gallery">
+            <div className="Home-Gallery">
                 <Image category="butterflies" image={ButterflyImage}/>
                 <Image category="arthropods" image={ArthropodImage}/>
                 <Image category="animals" image={AnimalImage}/>
                 <Image category="pets" image={PetImage}/>
-                <Image category="plants and flowers" image={FlowerImage}/>
+                <Image category="plants" image={FlowerImage}/>
                 <Image category="landscapes and Nature" image={NatureImage}/>
                 <Image category="sunsets" image={SunsetImage}/>
                 <Image category="weather" image={WeatherImage}/>
@@ -60,11 +60,11 @@ class Image extends React.Component {
     render() {
         return (
             <div className="categories">
-                <div className="image-shadow">
+                
                     <div className={this.state.isNotZoomed ? 'zoom-container not-zoomed' : 'zoom-container zoomed'}>
                         <img src={this.props.image}></img>
                     </div>
-                </div>
+                
                 <NavLink to={this.props.category}><h2 onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} className="gallery-button green">{this.props.category}</h2></NavLink>
             </div>
         );
