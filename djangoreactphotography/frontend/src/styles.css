@@ -1,7 +1,18 @@
+/* ----- Entire Page Elements ----- */
+
 body {
     background-color: black;
     margin: 0;
 }
+
+.Main-container {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    justify-content: space-between;
+}
+
+/* ----- Side Navigation Bar ----- */
 
 .Navbar {
     display: flex;
@@ -10,7 +21,7 @@ body {
     justify-content: center;
     background-color: black;
     color: white;
-    max-width: 300px;
+    max-width: 250px;
     padding: 20px;
     position: fixed;
     text-align: center;
@@ -38,6 +49,7 @@ body {
     text-align: center;
 }
 
+/* Hidden on desktop, shown on moble */
 #menu-btn {
     display: none;
 }
@@ -58,6 +70,19 @@ footer {
     background-color: black;
 }
 
+/* ----- About Page ----- */
+
+.About {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-left: 250px;
+    padding: 20px;
+    background-color: #c1c1c1;
+}
+
 .About p {
     font-size: 20px;
 }
@@ -66,38 +91,19 @@ footer {
     width: 30%;
 }
 
-.About {
-    flex-direction: column;
-}
+/* ----- Home Page Gallery -----*/
 
-.Gallery, .About {
+.Home-Gallery {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    margin-left: 340px;
-    width: 80%;
+    margin-left: 250px;
     padding: 20px;
     background-color: #c1c1c1;
 }
 
-.Gallery {
-    flex-direction: row;
-}
-
-.categories {
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    text-align: center;
-    width: 30%;
-    max-width: 450px;
-    min-width: 350px;
-    box-shadow: 4px 4px 15px 0px #818181;
-}
-
-.Gallery h2 {
+.Home-Gallery h2 {
     margin-top: -4px;
     margin-bottom: -4px;
     padding-top: 10px;
@@ -105,13 +111,80 @@ footer {
     width: 100%;
 }
 
-.Gallery a {
+.Home-Gallery a {
     text-decoration: none;
+}
+
+.Home-Gallery img {
+    width: 100%;
+}
+
+/* Next 3 classes control zoom effect */
+.zoom-container {
+    overflow: hidden;
+}
+
+.not-zoomed img {
+    transition: transform 0.5s ease;
+}
+
+.zoomed img {
+    transition: transform 0.5s ease;
+    transform: scale(1.2);
+}
+
+.categories {
+    box-shadow: 4px 4px 15px 0px #818181;
+    width: 30%;
+    max-width: 400px;
+    min-width: 300px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: center;
 }
 
 .gallery-button {
     text-transform: capitalize;
 }
+
+/* ----- Plant Gallery Page ----- */
+
+.Gallery {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-left: 250px;
+    padding: 5px;
+    background-color: #c1c1c1;
+}
+
+.Gallery img {
+    width: 100%;
+}
+
+.thumbnails {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: center;
+    width: 30%;
+    max-width: 400px;
+    min-width: 300px;
+}
+
+.image-shadow {
+    box-shadow: 4px 4px 15px 0px #818181;
+}
+
+.shop-button-container {
+    margin: 10px;
+}
+
+/* ----- Colors (for Buttons) ----- */
 
 .green {
     background-color: rgb(73, 138, 104);
@@ -127,36 +200,50 @@ footer {
     background-color: rgb(45, 85, 64);
 }
 
-button {
+/* ----- Buttons -----*/
+
+/*button {
     border: 0;
-    padding: 10px;
-    margin: 5px;
-    font-size: 20px;
-}
+    padding-left: 12.5px;
+    padding-right: 12.5px;
+    margin-top: -4.5px;
+    height: 25px;
+    font-size: 15px;
+    width: 50%;
+}*/
 
-.Gallery img {
-    width: 100%;
-    /*box-shadow: 2px 2px 15px 0px #818181;*/
-}
-
-.zoom-container {
-    overflow: hidden;
-}
-
-.not-zoomed img {
-    transition: transform 0.5s ease;
-}
-
-.zoomed img {
-    transition: transform 0.5s ease;
-    transform: scale(1.2);
-}
-
-.Main-container {
+.button-container {
     display: flex;
     flex-direction: row;
-    align-items: top;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.button-container button {
+    margin-top: -4px;
+    margin-left: 3px;
+    margin-right: 3px;
+    height: 25px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+}
+
+button.enabled {
+    background-color: rgb(20,20,20);
+    color: white;
+}
+
+button.enabled:hover {
+    background-color:rgb(73, 138, 104);
+}
+
+button.disabled, .button.disabled:hover {
+    background-color: rgb(110,110,110);
+    color: white;
 }
 
 @media all and (max-width: 900px) {
@@ -201,7 +288,7 @@ button {
         padding-top: 10px;
     }
 
-    .Gallery, .About {
+    .Home-Gallery, .About, .Gallery {
         max-width: 850px;
         width: 100%;
         margin-left: 0;
@@ -210,9 +297,20 @@ button {
 }
 
 @media all and (max-width: 840px) {
-    .categories {
+    .categories, .thumbnails {
         width: 90%;
         min-width: none;
         max-width: none;
     }
+
+    .button-container button {
+        height: 30px;
+        font-size: 18px;   
+    }
+}
+
+/* Testing LightGallery */
+
+img.lg-object.lg-image {
+    max-height: 80%;
 }
