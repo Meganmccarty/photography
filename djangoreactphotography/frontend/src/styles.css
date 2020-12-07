@@ -30,7 +30,7 @@ body {
 .Navbar li {
     list-style-type: none;
     list-style-position: outside;
-    padding: 5px;
+    padding: 10px;
     margin-left: -50px;
     font-size: 23px;
 }
@@ -47,6 +47,7 @@ body {
 
 .Navbar h1 {
     text-align: center;
+    padding: 10px;
 }
 
 /* Hidden on desktop, shown on moble */
@@ -247,17 +248,22 @@ button.disabled, .button.disabled:hover {
 }
 
 @media all and (max-width: 900px) {
+    body {
+        background-color: #c1c1c1;
+    }
+    
     .Main-container {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        margin-bottom: 20px;
     }
 
     .Navbar {
         display: flex;
         flex-direction: column;
         position: static;
-        max-width: 850px;
+        max-width: 900px;
         width: 100%;
     }
 
