@@ -92,6 +92,10 @@ footer {
     width: 30%;
 }
 
+.About a {
+    color: rgb(47, 87, 66);
+}
+
 /* ----- Home Page Gallery -----*/
 
 .Home-Gallery {
