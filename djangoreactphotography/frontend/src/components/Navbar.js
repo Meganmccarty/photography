@@ -8,8 +8,8 @@ class Menu extends React.Component {
         return (
             <ul>
                 <NavLink to="/about"><li>About</li></NavLink>
-                <a href="#"><li>Alamy Page</li></a>
-                <a href="#"><li>Fine Art America Page</li></a>
+                <a href="https://www.alamy.com/portfolio/113387.html"><li>Alamy Page</li></a>
+                <a href="https://fineartamerica.com/profiles/1-megan-mccarty"><li>Fine Art America Page</li></a>
             </ul>
         )
     }
