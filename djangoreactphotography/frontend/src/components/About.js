@@ -6,7 +6,7 @@ class About extends React.Component {
     render () {
         return (
             <div className="About">
-                <img src={Megan}></img>
+                <img src={Megan} alt="Headshot of the photographer, Megan" className="image-shadow"></img>
                 <h1>About the Photographer</h1>
                 <p>
                     Megan started her photography journey at the age of 8, focusing her camera on 
@@ -17,8 +17,8 @@ class About extends React.Component {
                     animals, landscapes, and even the occasional building.
                 </p>
                 <p>
-                    She also sells her photos as digitial downloads on Alamy and as prints on 
-                    Fine Art America.
+                    She sells her photos as digitial downloads on <a href="https://www.alamy.com/portfolio/113387.html">Alamy</a> and 
+                    as prints on <a href="https://fineartamerica.com/profiles/1-megan-mccarty">Fine Art America</a>.
                 </p>
                 <p>
                     Currently, Megan is a freelance web developer, and she built this site
