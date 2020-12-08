@@ -35,7 +35,7 @@ $.fn.stopStealPhoto = function(options) {
     // default settings
     var settings = $.extend({
         message: 'Image © Megan McCarty',
-        delay: 600,
+        delay: 2000,
         customClass: undefined,
         cursorOffset: 14
     }, options);
