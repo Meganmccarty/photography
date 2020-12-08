@@ -17,7 +17,7 @@ class About extends React.Component {
                     animals, landscapes, and even the occasional building.
                 </p>
                 <p>
-                    She sells her photos as digitial downloads on <a href="https://www.alamy.com/portfolio/113387.html">Alamy</a> and 
+                    She sells her photos as digital downloads on <a href="https://www.alamy.com/portfolio/113387.html">Alamy</a> and 
                     as prints on <a href="https://fineartamerica.com/profiles/1-megan-mccarty">Fine Art America</a>.
                 </p>
                 <p>
