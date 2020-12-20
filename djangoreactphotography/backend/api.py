@@ -7,5 +7,5 @@ from .serializers import PhotoSerializer
 
 class PhotoViewSet(viewsets.ModelViewSet):
 
-    queryset = Photo.objects.filter(show=True).order_by('-date_taken')
+    queryset = Photo.objects.filter(show=True).order_by('-order')
     serializer_class = PhotoSerializer

@@ -16,6 +16,7 @@ class PhotoSerializer(serializers.ModelSerializer):
             'location',
             'category',
             'show',
+            'order',
             'alamy_url',
             'fine_art_america_url',
         ]

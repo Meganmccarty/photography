@@ -3,7 +3,7 @@ from backend.models import Photo
 
 @admin.register(Photo)
 class PhotoAdmin(admin.ModelAdmin):
-    list_display = ('name', 'image', 'category', 'caption', 'date_taken', 'location', 'show')
+    list_display = ('name', 'image', 'category', 'caption', 'date_taken', 'location', 'show', 'order')
     fields = [
         'image',
         'name',
@@ -13,5 +13,6 @@ class PhotoAdmin(admin.ModelAdmin):
         'category',
         'location',
         'show',
+        'order',
         ('alamy_url', 'fine_art_america_url'),
     ]
