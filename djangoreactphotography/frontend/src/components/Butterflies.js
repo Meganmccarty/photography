@@ -16,7 +16,7 @@ const ButterflyCard = (props) => {
                         Alamy
                     </button>
                     <button className="disabled">
-                        <i class="dont icon"></i>
+                        <i className="dont icon"></i>
                         Fine Art America
                     </button>
                 </div>
@@ -28,9 +28,9 @@ const ButterflyCard = (props) => {
                         <i className="dont icon"></i>
                         Alamy
                     </button>
-                    <a href={props.fineArtAmericaURL} target="_blank">
+                    <a href={props.fineArtAmericaURL}>
                         <button className="enabled">
-                            <i class="shopping cart icon"></i>
+                            <i className="shopping cart icon"></i>
                             Fine Art America
                         </button>
                     </a>
@@ -39,14 +39,14 @@ const ButterflyCard = (props) => {
         } else if (props.alamyURL && !props.fineArtAmericaURL) {
             return (
                 <div className="button-container">
-                    <a href={props.alamyURL} target="_blank">
+                    <a href={props.alamyURL}>
                         <button className="enabled">
-                            <i class="shopping cart icon"></i>
+                            <i className="shopping cart icon"></i>
                             Alamy
                             </button>
                         </a>
                     <button className="disabled">
-                        <i class="dont icon"></i>
+                        <i className="dont icon"></i>
                         Fine Art America
                     </button>
                 </div>
@@ -54,15 +54,15 @@ const ButterflyCard = (props) => {
         } else if (props.alamyURL && props.fineArtAmericaURL) {
             return (
                 <div className="button-container">
-                    <a href={props.alamyURL} target="_blank">
+                    <a href={props.alamyURL}>
                         <button className="enabled">
-                            <i class="shopping cart icon"></i>
+                            <i className="shopping cart icon"></i>
                             Alamy
                         </button>
                     </a>
-                    <a href={props.fineArtAmericaURL} target="_blank">
+                    <a href={props.fineArtAmericaURL}>
                         <button className="enabled">
-                            <i class="shopping cart icon"></i>
+                            <i className="shopping cart icon"></i>
                             Fine Art America
                         </button>
                     </a>
