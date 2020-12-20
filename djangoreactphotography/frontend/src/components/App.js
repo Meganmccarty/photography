@@ -3,8 +3,22 @@ import $ from 'jquery';
 import Navbar from './Navbar.js';
 import Gallery from './Gallery.js';
 import About from './About.js';
+import Animals from './Animals.js';
+import Architecture from './Architecture.js';
+import Arthropods from './Arthropods.js';
+import Autumn from './Autumn.js';
 import Butterflies from './Butterflies.js';
+import Caterpillars from './Caterpillars.js';
+import Landscapes from './Landscapes.js';
+import Nature from './Nature.js';
+import Night from './Night.js';
+import Other from './Other.js';
+import Pets from './Pets.js';
 import Plants from './Plants.js';
+import Spring from './Spring.js';
+import Sunsets from './Sunsets.js';
+import Weather from './Weather.js';
+import Winter from './Winter.js';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -17,8 +31,22 @@ class App extends React.Component {
                     <Switch>
                         <Route path="/" component={Gallery} exact/>
                         <Route path="/about" component={About}/>
+                        <Route path="/animals" component={Animals}/>
+                        <Route path="/architecture" component={Architecture}/>
+                        <Route path="/arthropods" component={Arthropods}/>
+                        <Route path="/autumn" component={Autumn}/>
                         <Route path="/butterflies" component={Butterflies}/>
-                        <Route path="/plants" component={Plants}/>
+                        <Route path="/caterpillars" component={Caterpillars}/>
+                        <Route path="/landscapes" component={Landscapes}/>
+                        <Route path="/nature" component={Nature}/>
+                        <Route path="/night-skies" component={Night}/>
+                        <Route path="/other" component={Other}/>
+                        <Route path="/pets" component={Pets}/>
+                        <Route path="/plants-and-flowers" component={Plants}/>
+                        <Route path="/spring" component={Spring}/>
+                        <Route path="/sunsets" component={Sunsets}/>
+                        <Route path="/weather" component={Weather}/>
+                        <Route path="/winter" component={Winter}/>
                     </Switch>
                 </BrowserRouter>
             </div>
