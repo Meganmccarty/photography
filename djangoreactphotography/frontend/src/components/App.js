@@ -58,7 +58,7 @@ $.fn.stopStealPhoto = function(options) {
 
     // default settings
     var settings = $.extend({
-        message: 'Image © Megan McCarty',
+        message: 'Photo © Megan McCarty',
         delay: 2000,
         customClass: undefined,
         cursorOffset: 14
@@ -97,8 +97,8 @@ $.fn.stopStealPhoto = function(options) {
             hint.css({
                 'background-color': 'rgba(	73, 138, 104,0.75)',
                 'color': '#fff',
-                'font-size': '11px',
-                'padding': '4px',
+                'font-size': '15px',
+                'padding': '8px',
                 'font-family': 'sans-serif',
                 'border-radius': '4px',
                 'position': 'fixed',
