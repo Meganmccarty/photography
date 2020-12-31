@@ -16,12 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf import settings
-from django.conf.urls import include
+from django.conf.urls import include, url
 from django.conf.urls.static import static
+from backend.views import FrontendAppView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('backend.urls')),
+    url(r'^', FrontendAppView.as_view())
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:
