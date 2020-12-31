@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import App from './components/App.js';
 import axios from 'axios';
-
 
 import 'semantic-ui-css/semantic.min.css';
 import 'lightgallery.js/dist/css/lightgallery.css';
@@ -13,7 +12,10 @@ axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.withCredentials = true;
 
-axios.post('/login/', { username: 'meganmccarty', password: 'B@77u$ph!13n0r'}).then(rv => {
+const my_user_name = process.env.USERNAME; /* NOTE: Using environment variables throws console errors, yet website works fine */
+const my_password = process.env.PASSWORD;  /*       Not sure how to fix the errors, but this secures sensitive data */
+
+axios.post('/login/', { username: my_user_name, password: my_password}).then(rv => {
     console.log('Login', rv)
     /*axios.get('/api/photos/').then(resp => {
         console.log('Response', resp)
@@ -25,7 +27,7 @@ axios.post('/login/', { username: 'meganmccarty', password: 'B@77u$ph!13n0r'}).t
 });
 
 const updatePhoto = () => {
-    axios.patch('http://localhost:8000/api/photos/').then(resp => {
+    axios.patch('https://meganmccarty.pythonanywhere.com/api/photos/').then(resp => {
         console.log('Update response', resp)
     }).catch(error => {
         console.log("Update error", error)
@@ -39,9 +41,7 @@ const updatePhoto = () => {
 });*/
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-    </React.StrictMode>,
+    <App />,
   document.getElementById('root')
 );
 
