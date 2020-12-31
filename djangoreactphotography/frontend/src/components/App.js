@@ -10,13 +10,11 @@ import Autumn from './Autumn.js';
 import Butterflies from './Butterflies.js';
 import Caterpillars from './Caterpillars.js';
 import Landscapes from './Landscapes.js';
-import Nature from './Nature.js';
-import Night from './Night.js';
-import Other from './Other.js';
 import Pets from './Pets.js';
 import Plants from './Plants.js';
 import Spring from './Spring.js';
 import Sunsets from './Sunsets.js';
+import Water from './Water.js';
 import Weather from './Weather.js';
 import Winter from './Winter.js';
 
@@ -38,13 +36,11 @@ class App extends React.Component {
                         <Route path="/butterflies" component={Butterflies}/>
                         <Route path="/caterpillars" component={Caterpillars}/>
                         <Route path="/landscapes" component={Landscapes}/>
-                        <Route path="/nature" component={Nature}/>
-                        <Route path="/night-skies" component={Night}/>
-                        <Route path="/other" component={Other}/>
                         <Route path="/pets" component={Pets}/>
                         <Route path="/plants-and-flowers" component={Plants}/>
                         <Route path="/spring" component={Spring}/>
-                        <Route path="/sunsets" component={Sunsets}/>
+                        <Route path="/sunsets-and-skies" component={Sunsets}/>
+                        <Route path="/water" component={Water}/>
                         <Route path="/weather" component={Weather}/>
                         <Route path="/winter" component={Winter}/>
                     </Switch>
@@ -54,12 +50,12 @@ class App extends React.Component {
     }
 }
 
-/* Below is stopStealPhoto.js code to disable right-clicking photos 
+/* Below is stopStealPhoto.js code to disable right-clicking photos
 and replace with copyright notice; code taken from Andrew Novikov (andymarch25):
 https://github.com/andymarch25/stopStealPhoto */
 
 $.fn.stopStealPhoto = function(options) {
-  
+
     // default settings
     var settings = $.extend({
         message: 'Image © Megan McCarty',
@@ -94,7 +90,7 @@ $.fn.stopStealPhoto = function(options) {
         })
 
         if (settings.customClass) {
-             
+
             hint.addClass(settings.customClass)
 
         } else {

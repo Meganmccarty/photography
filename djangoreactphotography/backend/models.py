@@ -12,13 +12,11 @@ class Photo(models.Model):
         ('Butterflies', 'Butterflies'),
         ('Caterpillars', 'Caterpillars'),
         ('Landscapes', 'Landscapes'),
-        ('Nature', 'Nature'),
-        ('Night', 'Night Sky'),
-        ('Other', 'Other'),
         ('Pets', 'Pets'),
         ('Plants', 'Plants and Flowers'),
         ('Spring', 'Spring'),
-        ('Sunsets', 'Sunsets'),
+        ('Sunsets', 'Sunsets and Skies'),
+        ('Water', 'Water'),
         ('Weather', 'Weather'),
         ('Winter', 'Winter'),
     )
@@ -37,7 +35,7 @@ class Photo(models.Model):
     def generate_filename(self, filename):
         name = "%s/%s" % (self.category.lower(), filename)
         return name
-    
+
     image = models.ImageField(upload_to=generate_filename)
 
     def __str__(self):

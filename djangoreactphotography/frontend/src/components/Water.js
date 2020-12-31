@@ -6,11 +6,11 @@ import {
 import axios from 'axios';
 import { render } from 'react-dom';
 
-const OtherCard = (props) => {
+const WaterCard = (props) => {
     function renderShopButtons () {
         if (!props.alamyURL && !props.fineArtAmericaURL) {
             return (
-                <div className="button-container">            
+                <div className="button-container">
                     <button className="disabled">
                         <i className="dont icon"></i>
                         Alamy
@@ -23,7 +23,7 @@ const OtherCard = (props) => {
             )
         } else if (!props.alamyURL && props.fineArtAmericaURL) {
             return (
-                <div className="button-container">            
+                <div className="button-container">
                     <button className="disabled">
                         <i className="dont icon"></i>
                         Alamy
@@ -87,27 +87,27 @@ const OtherCard = (props) => {
     )
 }
 
-const OtherPhotos = () => {
-    const [OtherPhotoInfo,setOtherPhotoInfo] = useState([]);
+const WaterPhotos = () => {
+    const [WaterPhotoInfo,setWaterPhotoInfo] = useState([]);
 
-    const fetchOtherPhotos  = async () =>{
+    const fetchWaterPhotos  = async () =>{
         const response = await axios.get('/api/photos/')
-        setOtherPhotoInfo(response.data)
+        setWaterPhotoInfo(response.data)
     }
 
-    const createOtherCards = () => {
+    const createWaterCards = () => {
         return (
             <>
-                {OtherPhotoInfo.map(photo => {
+                {WaterPhotoInfo.map(photo => {
 
                     if(!photo){
                         return <div>Loading..</div>
 
-                    } else if(photo.category === 'Other') {
+                    } else if(photo.category === 'Water') {
 
                         return (
-                            
-                                <OtherCard
+
+                                <WaterCard
                                     key={photo.id}
                                     image={photo.image}
                                     name={photo.name}
@@ -119,16 +119,16 @@ const OtherPhotos = () => {
                                     alamyURL={photo.alamy_url}
                                     fineArtAmericaURL={photo.fine_art_america_url}
                                 />
-                            
-                        )    
+
+                        )
                     }
                 })}
-            </>   
+            </>
         )
     }
 
     useEffect(()=>{
-        fetchOtherPhotos()
+        fetchWaterPhotos()
     },[])
 
     return (
@@ -139,7 +139,7 @@ const OtherPhotos = () => {
                 }
             }
             plugins={
-                [   
+                [
                     'lg-autoplay.js',
                     'lg-fullscreen.js',
                     'lg-hash.js',
@@ -149,10 +149,10 @@ const OtherPhotos = () => {
             }
         >
             <div className="Gallery">
-                {createOtherCards()}
+                {createWaterCards()}
             </div>
         </LightgalleryProvider>
     )
 }
 
-export default OtherPhotos
+export default WaterPhotos
