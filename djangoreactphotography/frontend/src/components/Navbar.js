@@ -1,80 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../images/logo-white.png';
 import { NavLink } from 'react-router-dom';
 import alamy from '../images/alamy-logo-2.png';
 import ffa from '../images/fine-art-america-logo-3.png';
 import instagram from '../images/instagram-logo.png';
 
-
-class Menu extends React.Component {
-    render () {
-        return (
-            <ul>
-                <NavLink to="/about"><li>About</li></NavLink>
-                <a href="https://www.alamy.com/portfolio/113387.html"><li>Digital Downloads</li></a>
-                <a href="https://shop.meganmccartyphotography.com"><li>Prints</li></a>
-            </ul>
-        )
-    }
-
-    /*render() {
-        return (
-            <ul>
-                <a href="#"><li>Butterflies</li></a>
-                <a href="#"><li>Arthropods</li></a>
-                <a href="#"><li>Animals</li></a>
-                <a href="#"><li>Pets</li></a>
-                <a href="#"><li>Plants and Flowers</li></a>
-                <a href="#"><li>Landscapes and Nature</li></a>
-                <a href="#"><li>Sunsets</li></a>
-                <a href="#"><li>Weather</li></a>
-                <a href="#"><li>Spring</li></a>
-                <a href="#"><li>Autumn</li></a>
-                <a href="#"><li>Winter</li></a>
-                <a href="#"><li>Buildings and Architecture</li></a>
-                <a href="#"><li>Other</li></a>
-            </ul>
-        )
-    }*/
-}
-
-class Toggle extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {isMenuClosed: true};
-        this.handleClick = this.handleClick.bind(this);
-    }
-
-    handleClick() {
-        this.setState(state => ({
-            isMenuClosed: !state.isMenuClosed
-        }));
-    }
-
-    render() {
-        return (
-            <span onClick={this.handleClick} id="menu-btn">
-                &#9776; Menu
-                <div id="nav" className={this.state.isMenuClosed ? 'closed' : 'open'}>
-                    <nav>
-                        <Menu />
-                    </nav>
-                </div>
-            </span>
-        );
-    }
-}
-
 function Navbar() {
+    const [menuShown, setMenuShown] = useState(false);
+
+    function handleClick() {
+        menuShown ? setMenuShown(false) : setMenuShown(true);
+    }
+
     return (
         <div className="Navbar">
             <div id="logo">
-                <img src={logo} alt="Camera logo with a butterfly on the top left of the camera"></img>
+                <NavLink to="/"><img src={logo} alt="Camera logo with a butterfly on the top left of the camera"></img></NavLink>
             </div>
             <NavLink to="/"><h1>Megan McCarty Photography</h1></NavLink>
-            <Toggle />
+            <span onClick={handleClick} id="menu-btn">
+                &#9776; Menu
+                <div id="nav" className={menuShown ? 'open' : 'closed'}>
+                    <nav>
+                        <ul>
+                            <NavLink to="/about"><li>About</li></NavLink>
+                            <a href="https://www.alamy.com/portfolio/113387.html"><li>Digital Downloads</li></a>
+                            <a href="https://shop.meganmccartyphotography.com"><li>Prints</li></a>
+                        </ul>
+                    </nav>
+                </div>
+            </span>
             <nav id="nav-lg">
-                <Menu />
+                <ul>
+                    <NavLink to="/about"><li>About</li></NavLink>
+                    <a href="https://www.alamy.com/portfolio/113387.html"><li>Digital Downloads</li></a>
+                    <a href="https://shop.meganmccartyphotography.com"><li>Prints</li></a>
+                </ul>
             </nav>
             <footer>
                 <div class="icon-container">
