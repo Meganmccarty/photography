@@ -67,7 +67,7 @@ $.fn.stopStealPhoto = function(options) {
     var timer;
     var elem = this;
 
-    $('body').on('contextmenu', 'img', function (event) {
+    $('body').on('contextmenu', '.stopSteal', function (event) {
         event.preventDefault();
 
         var currentElement = event.currentTarget;
@@ -121,6 +121,6 @@ $.fn.stopStealPhoto = function(options) {
 
 };
 
-$('img').stopStealPhoto();
+$('.stopSteal').stopStealPhoto();
 
 export default App;

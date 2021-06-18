@@ -20,20 +20,20 @@ class ImageCard extends React.Component {
     render() {
         return (
             <div className="Home-Gallery">
-                <Image category="butterflies" url="butterflies" image={ButterflyImage}/>
-                <Image category="caterpillars" url="caterpillars" image={CaterpillarImage}/>
-                <Image category="arthropods" url="arthropods" image={ArthropodImage}/>
-                <Image category="animals" url="animals" image={AnimalImage}/>
-                <Image category="pets" url="pets" image={PetImage}/>
-                <Image category="plants and flowers" url="plants-and-flowers" image={FlowerImage}/>
-                <Image category="landscapes" url="landscapes" image={LandscapeImage}/>
-                <Image category="sunsets and skies" url="sunsets-and-skies" image={SunsetImage}/>
-                <Image category="weather" url="weather" image={WeatherImage}/>
-                <Image category="spring" url="spring" image={SpringImage}/>
-                <Image category="autumn" url="autumn" image={AutumnImage}/>
-                <Image category="winter" url="winter" image={WinterImage}/>
-                <Image category="architecture" url="architecture" image={ArchitectureImage}/>
-                <Image category="water" url="water" image={WaterImage}/>
+                <Image category="butterflies" url="butterflies" image={ButterflyImage} alt="Butterfly"/>
+                <Image category="caterpillars" url="caterpillars" image={CaterpillarImage} alt="Caterpillar"/>
+                <Image category="arthropods" url="arthropods" image={ArthropodImage} alt="Arthropod"/>
+                <Image category="animals" url="animals" image={AnimalImage} alt="Animal"/>
+                <Image category="pets" url="pets" image={PetImage} alt="Pet"/>
+                <Image category="plants and flowers" url="plants-and-flowers" image={FlowerImage} alt="Flower"/>
+                <Image category="landscapes" url="landscapes" image={LandscapeImage} alt="Landscape"/>
+                <Image category="sunsets and skies" url="sunsets-and-skies" image={SunsetImage} alt="Sunset"/>
+                <Image category="weather" url="weather" image={WeatherImage} alt="Lightning strike"/>
+                <Image category="spring" url="spring" image={SpringImage} alt="Spring flowers"/>
+                <Image category="autumn" url="autumn" image={AutumnImage} alt="Autumn foliage"/>
+                <Image category="winter" url="winter" image={WinterImage} alt="Frozen berries"/>
+                <Image category="water" url="water" image={WaterImage} alt="Water droplets"/>
+                <Image category="architecture" url="architecture" image={ArchitectureImage} alt="Building"/>
             </div>
         );
     }
@@ -64,7 +64,7 @@ class Image extends React.Component {
             <div className="categories">
 
                     <div className={this.state.isNotZoomed ? 'zoom-container not-zoomed' : 'zoom-container zoomed'}>
-                        <img src={this.props.image}></img>
+                        <img className="stopSteal" src={this.props.image} alt={this.props.alt}></img>
                     </div>
 
                 <NavLink to={this.props.url}><h2 onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} className="gallery-button green">{this.props.category}</h2></NavLink>
