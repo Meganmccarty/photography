@@ -70,6 +70,14 @@ footer {
     padding-bottom: 25px;
     background-color: black;
     max-width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+footer img {
+    max-width: 30px;
+    padding: 5px;
+    height: auto;
 }
 
 /* ----- About Page ----- */
@@ -255,6 +263,7 @@ button.disabled, .button.disabled:hover {
 @media all and (max-width: 900px) {
     body {
         background-color: #c1c1c1;
+        margin-bottom: 30px;
     }
 
     .Main-container {
@@ -295,6 +304,7 @@ button.disabled, .button.disabled:hover {
 
     footer {
         width: 100%;
+        max-width: 900px;
         padding-bottom: 10px;
         padding-top: 10px;
     }
@@ -303,7 +313,7 @@ button.disabled, .button.disabled:hover {
         max-width: 850px;
         width: 100%;
         margin-left: 0;
-        margin-bottom: 15px;
+        margin-bottom: 60px;
     }
 }
 
@@ -315,8 +325,8 @@ button.disabled, .button.disabled:hover {
     }
 
     .button-container button {
-        height: 30px;
-        font-size: 18px;
+        height: 32px;
+        font-size: 16px;
     }
 }
 
