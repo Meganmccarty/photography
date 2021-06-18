@@ -1,7 +1,7 @@
 /* ----- Entire Page Elements ----- */
 
 body {
-    background-color: black;
+    background-color: #c1c1c1;
     margin: 0;
 }
 
@@ -18,13 +18,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     background-color: black;
     color: white;
     max-width: 250px;
     padding: 20px;
     position: fixed;
     text-align: center;
+    height: 100%;
 }
 
 .Navbar li {
