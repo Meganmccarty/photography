@@ -13,11 +13,11 @@ const WaterCard = (props) => {
                 <div className="button-container">
                     <button className="disabled">
                         <i className="dont icon"></i>
-                        Alamy
+                        Digital Downloads
                     </button>
                     <button className="disabled">
                         <i className="dont icon"></i>
-                        Fine Art America
+                        Prints
                     </button>
                 </div>
             )
@@ -26,12 +26,12 @@ const WaterCard = (props) => {
                 <div className="button-container">
                     <button className="disabled">
                         <i className="dont icon"></i>
-                        Alamy
+                        Digital Downloads
                     </button>
                     <a href={props.fineArtAmericaURL}>
                         <button className="enabled">
                             <i className="shopping cart icon"></i>
-                            Fine Art America
+                            Prints
                         </button>
                     </a>
                 </div>
@@ -42,12 +42,12 @@ const WaterCard = (props) => {
                     <a href={props.alamyURL}>
                         <button className="enabled">
                             <i className="shopping cart icon"></i>
-                            Alamy
+                            Digital Downloads
                             </button>
                         </a>
                     <button className="disabled">
                         <i className="dont icon"></i>
-                        Fine Art America
+                        Prints
                     </button>
                 </div>
             )
@@ -57,13 +57,13 @@ const WaterCard = (props) => {
                     <a href={props.alamyURL}>
                         <button className="enabled">
                             <i className="shopping cart icon"></i>
-                            Alamy
+                            Digital Downloads
                         </button>
                     </a>
                     <a href={props.fineArtAmericaURL}>
                         <button className="enabled">
                             <i className="shopping cart icon"></i>
-                            Fine Art America
+                            Prints
                         </button>
                     </a>
                 </div>
@@ -73,12 +73,12 @@ const WaterCard = (props) => {
 
     return (
         <div className="thumbnails">
-            <LightgalleryItem group="any" src={props.image} subHtml={
+            <LightgalleryItem group="any" src={props.s3URL} subHtml={
                 "<h5>"+props.caption+"</h5>"+
                 "<p>Photo taken on "+props.dateTaken+", "+
                 props.location+"</p>"
             }>
-                <img src={props.image} alt={props.altText} className="image-shadow"></img>
+                <img src={props.s3URL} alt={props.altText} className="image-shadow stopSteal"></img>
             </LightgalleryItem>
             <div className="shop-button-container">
                 {renderShopButtons()}
@@ -110,6 +110,7 @@ const WaterPhotos = () => {
                                 <WaterCard
                                     key={photo.id}
                                     image={photo.image}
+                                    s3URL={photo.s3_image_url}
                                     name={photo.name}
                                     caption={photo.caption}
                                     altText={photo.alt_text}
@@ -135,6 +136,7 @@ const WaterPhotos = () => {
         <LightgalleryProvider
             lightgallerySettings={
                 {
+                    addClass: 'stopSteal',
                     download: false,
                 }
             }
