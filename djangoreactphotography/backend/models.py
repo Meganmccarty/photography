@@ -36,7 +36,8 @@ class Photo(models.Model):
         name = "%s/%s" % (self.category.lower(), filename)
         return name
 
-    image = models.ImageField(upload_to=generate_filename)
+    image = models.ImageField(null=True, blank=True, upload_to=generate_filename)
+    s3_image_url = models.URLField(default='', null=True, blank=True)
 
     def __str__(self):
         return self.name

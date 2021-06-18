@@ -8,7 +8,9 @@ class PhotoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Photo
         fields = [
+            'id',
             'image',
+            's3_image_url',
             'name',
             'caption',
             'alt_text',
