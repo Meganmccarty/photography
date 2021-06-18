@@ -6,9 +6,9 @@ from .api import PhotoViewSet
 from backend import views
 
 router = routers.DefaultRouter()
-router.register('photos', PhotoViewSet)
+#router.register('photos', PhotoViewSet)
 
 urlpatterns = [
     url(r'^api/', include(router.urls)),
-    url(r'^login/$', views.api_login),
+    url(r'^api/photos/$', views.PhotoList.as_view()),
 ]
