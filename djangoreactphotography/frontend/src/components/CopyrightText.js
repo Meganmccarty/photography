@@ -15,31 +15,29 @@ function CopyrightText() {
     }, []);
 
     function reduceOpacity() {
+        console.log("Function reduceOpacity() executed")
         return setOpacity((opacity) => opacity - 0.05)
     }
     
-    function fadeOut(intervalID) {
-        intervalID = setInterval(reduceOpacity, 50)
+    function fadeOut() {
+        console.log("Function fadeOut() executed")
+        let intervalID = setInterval(reduceOpacity, 50)
         setTimeout(() => {
+            console.log("Final setTimeout() function executed")
             clearInterval(intervalID);
             return setShowContextMenu(false);
         }, 1000)
     }
     
     function handleClick(event) {
-        let intervalID;
-        console.log(event);
-        console.log(event.target);
-        console.log(event.currentTarget);
         if (!event.target.className.includes("noStopSteal") && event.target.nodeName === 'IMG' ) {
             event.preventDefault();
-            let x = event.clientX + 14;
-            let y = event.clientY + 14;
-            setXPos((xPos) => xPos = x);
-            setYPos((yPos) => yPos = y);
+            setXPos((xPos) => xPos = event.clientX + 14);
+            setYPos((yPos) => yPos = event.clientY + 14);
             setShowContextMenu(true);
+            console.log("Context menu rendered")
     
-            setTimeout(() => fadeOut(intervalID), 1000);
+            setTimeout(() => fadeOut(), 2000);
             setOpacity((opacity) => opacity = 1);
         }
     }
