@@ -15,7 +15,7 @@ function Navbar() {
     return (
         <div className="Navbar">
             <div id="logo">
-                <NavLink to="/"><img src={logo} alt="Camera logo with a butterfly on the top left of the camera"></img></NavLink>
+                <NavLink to="/"><img src={logo} className="noStopSteal" alt="Camera logo with a butterfly on the top left of the camera"></img></NavLink>
             </div>
             <NavLink to="/"><h1>Megan McCarty Photography</h1></NavLink>
             <span onClick={handleClick} id="menu-btn">
