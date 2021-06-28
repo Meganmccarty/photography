@@ -1,54 +1,69 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
-function CopyrightText() {
-    const [xPos, setXPos] = useState(0);
-    const [yPos, setYPos] = useState(0);
-    const [showContextMenu, setShowContextMenu] = useState(false);
-    const [opacity, setOpacity] = useState(1);
-
-    useEffect(() => {
-        document.body.addEventListener('contextmenu', handleClick);
-
-        return function cleanup() {
-            window.removeEventListener('contextmenu', handleClick);
-        }
-    }, []);
-
-    function reduceOpacity() {
-        console.log("Function reduceOpacity() executed")
-        return setOpacity((opacity) => opacity - 0.05)
+class CopyrightText extends React.Component {
+    state = {
+        xPos: 0,
+        yPos: 0,
+        showContextMenu: false,
+        opacity: 1
     }
-    
-    function fadeOut() {
+
+    componentDidMount() {
+        document.body.addEventListener('contextmenu', (event) => this.handleClick(event));
+    }
+
+    componentWillUnmount() {
+        document.body.removeEventListener('contextmenu', (event) => this.handleClick(event));
+    }
+
+    handleClick = (event) => {
+        if (!event.target.className.includes("noStopSteal") && event.target.nodeName === 'IMG') {
+            event.preventDefault();
+            this.setState({
+                xPos: event.clientX + 14,
+                yPos: event.clientY + 14,
+                showContextMenu: true
+            })
+
+            console.log("Context menu rendered")
+
+            setTimeout(() => this.fadeOut(), 2000);
+            this.setState({ opacity: 1 });
+        }
+    }
+
+    fadeOut = () => {
         console.log("Function fadeOut() executed")
-        let intervalID = setInterval(reduceOpacity, 50)
+        let intervalID = setInterval(() => {
+            return this.reduceOpacity()
+        }, 50)
+
         setTimeout(() => {
             console.log("Final setTimeout() function executed")
+
             clearInterval(intervalID);
-            return setShowContextMenu(false);
+            return this.setState({ showContextMenu: false });
         }, 1000)
     }
-    
-    function handleClick(event) {
-        if (!event.target.className.includes("noStopSteal") && event.target.nodeName === 'IMG' ) {
-            event.preventDefault();
-            setXPos((xPos) => xPos = event.clientX + 14);
-            setYPos((yPos) => yPos = event.clientY + 14);
-            setShowContextMenu(true);
-            console.log("Context menu rendered")
-    
-            setTimeout(() => fadeOut(), 2000);
-            setOpacity((opacity) => opacity = 1);
-        }
+
+    reduceOpacity = () => {
+        console.log("Function reduceOpacity() executed")
+        this.setState(prevOpacity => {
+            console.log(prevOpacity.opacity);
+            return { opacity: prevOpacity.opacity - 0.05 }
+        })
+
     }
 
-    return (
-        showContextMenu ?
-            <span id="context-menu" style={{ 'left': xPos, 'top': yPos, 'opacity': opacity }}>
-                Photo © Megan McCarty
-            </span>
-            : null
-    )
+    render() {
+        return (
+            this.state.showContextMenu ?
+                <span id="context-menu" style={{ 'left': this.state.xPos, 'top': this.state.yPos, 'opacity': this.state.opacity }}>
+                    Photo © Megan McCarty
+                </span>
+                : null
+        )
+    }
 }
 
 export default CopyrightText;
