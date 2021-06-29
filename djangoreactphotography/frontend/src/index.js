@@ -1,50 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App.js';
-/*import axios from 'axios';*/
 
 import 'semantic-ui-css/semantic.min.css';
 import 'lightgallery.js/dist/css/lightgallery.css';
 import './styles.css';
 import * as serviceWorker from './serviceWorker';
-
-/*axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
-axios.defaults.xsrfCookieName = "csrftoken";
-axios.defaults.withCredentials = true;*/
-
-/*const my_user_name = process.env.REACT_APP_USERNAME;*/ /* NOTE: Using environment variables throws console errors, yet website works fine */
-/*const my_password = process.env.REACT_APP_PASSWORD;*/  /*       Not sure how to fix the errors, but this secures sensitive data */
-
-/*axios.get('/api/photo-list/').then(resp => {
-    console.log('Response', resp)
-}).catch(err => {
-    console.log('Error', err.response.status)
-});*/
-
-/*axios.post('/photos/', { username: my_user_name, password: my_password }).then(rv => {
-    console.log('Login', rv)
-    axios.get('/api/photos/').then(resp => {
-        console.log('Response', resp)
-    }).catch(err => {
-        console.log('Error', err.response.status)
-    });
-}).catch(err => {
-    console.log('Login error', err.response)
-});*/
-
-/*const updatePhoto = () => {
-    axios.patch('https://meganmccarty.pythonanywhere.com/api/photo-list/').then(resp => {
-        console.log('Update response', resp)
-    }).catch(error => {
-        console.log("Update error", error)
-    })
-}*/
-
-/*axios.get('/api/').then(resp => {
-    console.log('Response', resp)
-}).catch(err => {
-    console.log('Error', err.response.status)
-});*/
 
 ReactDOM.render(
     <App />,
@@ -55,3 +16,18 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+/*
+How I need to restructure my website
+|--App.js
+    |--CopyrightText.js
+    |--Navbar.js
+        |--MenuLinks.js
+        |--Footer.js
+    |--MainContainer.js => This component will display a gallery of images (depending on state, either
+        |--About.js        14 image categories or full gallery for a given category)
+        |--GalleryContainer.js
+            |--GalleryCard.js => This component will represent 1 individual image category to display in the gallery
+        |--PhotoContainer.js
+            |--PhotoCard.js => This component will represent 1 individual image *from* a category to display in the gallery
+*/
