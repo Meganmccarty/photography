@@ -1,33 +1,33 @@
 import React from 'react';
-import Navbar from './Nav/Navbar.js';
-import Gallery from './Gallery.js';
-import About from './About.js';
-import Animals from './Animals.js';
-import Architecture from './Architecture.js';
-import Arthropods from './Arthropods.js';
-import Autumn from './Autumn.js';
-import Butterflies from './Butterflies.js';
-import Caterpillars from './Caterpillars.js';
-import Landscapes from './Landscapes.js';
-import Pets from './Pets.js';
-import Plants from './Plants.js';
-import Spring from './Spring.js';
-import Sunsets from './Sunsets.js';
-import Water from './Water.js';
-import Weather from './Weather.js';
-import Winter from './Winter.js';
-import CopyrightText from './CopyrightText';
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+// import Gallery from './Gallery.js';
+// import About from './About.js';
+// import Animals from './Animals.js';
+// import Architecture from './Architecture.js';
+// import Arthropods from './Arthropods.js';
+// import Autumn from './Autumn.js';
+// import Butterflies from './Butterflies.js';
+// import Caterpillars from './Caterpillars.js';
+// import Landscapes from './Landscapes.js';
+// import Pets from './Pets.js';
+// import Plants from './Plants.js';
+// import Spring from './Spring.js';
+// import Sunsets from './Sunsets.js';
+// import Water from './Water.js';
+// import Weather from './Weather.js';
+// import Winter from './Winter.js';
+import Navbar from './Nav/Navbar.js';
+import CopyrightText from './CopyrightText';
+import MainContainer from './MainContainer';
 
 function App() {
 
     return (
         <div className="Main-container">
             <CopyrightText />
-            <BrowserRouter>
-                <Navbar />
-                <Switch>
+            <Navbar />
+            <MainContainer/>
+                {/* <Switch>
                     <Route path="/" component={Gallery} exact />
                     <Route path="/about" component={About} />
                     <Route path="/animals" component={Animals} />
@@ -44,8 +44,8 @@ function App() {
                     <Route path="/water" component={Water} />
                     <Route path="/weather" component={Weather} />
                     <Route path="/winter" component={Winter} />
-                </Switch>
-            </BrowserRouter>
+                </Switch> */}
+            
         </div>
     )
 
