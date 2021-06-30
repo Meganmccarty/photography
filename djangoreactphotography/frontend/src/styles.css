@@ -17,11 +17,20 @@ body {
     margin: 0;
 }
 
-.Main-container {
+.parent-container {
     display: flex;
     flex-direction: row;
     align-items: top;
     justify-content: space-between;
+}
+
+.Main-container {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    justify-content: center;
+    margin-left: 250px;
+    width: 100%;
 }
 
 /* ----- Side Navigation Bar ----- */
@@ -118,19 +127,45 @@ footer img {
     color: rgb(47, 87, 66);
 }
 
-/* ----- Home Page Gallery -----*/
+/* ----- Contact Form ----- */
 
-.Home-Gallery {
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 50px;
+    background-color: #c1c1c1;
+    width: 100%;
+}
+
+.form-group {
+    min-width: 400px;
+    font-size: 20px;
+}
+
+.form-group textarea {
+    min-height: 200px;
+}
+
+.form-group > input[type="submit"] {
+    font-size: 20px;
+    height: 30px;
+}
+
+/* ----- Galleries -----*/
+
+.gallery {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    margin-left: 250px;
     padding: 20px;
     background-color: #c1c1c1;
 }
 
-.Home-Gallery h2 {
+.gallery h2 {
     margin-top: -4px;
     margin-bottom: -4px;
     padding-top: 10px;
@@ -138,11 +173,11 @@ footer img {
     width: 100%;
 }
 
-.Home-Gallery a {
+.gallery a {
     text-decoration: none;
 }
 
-.Home-Gallery img {
+.gallery img {
     width: 100%;
 }
 
@@ -177,20 +212,6 @@ footer img {
 }
 
 /* ----- Plant Gallery Page ----- */
-
-.Gallery {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    margin-left: 250px;
-    padding: 5px;
-    background-color: #c1c1c1;
-}
-
-.Gallery img {
-    width: 100%;
-}
 
 .thumbnails {
     margin-left: 10px;
@@ -247,7 +268,7 @@ footer img {
     width: 100%;
 }
 
-.button-container button {
+.button-container button, input[type="submit"] {
     margin-top: -4px;
     margin-left: 3px;
     margin-right: 3px;
@@ -259,12 +280,12 @@ footer img {
     border: 0;
 }
 
-button.enabled {
+button.enabled, input[type="submit"] {
     background-color: rgb(20,20,20);
     color: white;
 }
 
-button.enabled:hover {
+button.enabled:hover, input[type="submit"]:hover {
     background-color:rgb(73, 138, 104);
 }
 
@@ -279,11 +300,19 @@ button.disabled, .button.disabled:hover {
         margin-bottom: 30px;
     }
 
+    .parent-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
     .Main-container {
+        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         margin-bottom: 20px;
+        margin-left: 0px;
     }
 
     .Navbar {
@@ -322,11 +351,16 @@ button.disabled, .button.disabled:hover {
         padding-top: 10px;
     }
 
-    .Home-Gallery, .About, .Gallery {
+    .gallery, .About {
         max-width: 850px;
         width: 100%;
         margin-left: 0;
         margin-bottom: 60px;
+    }
+
+    .contact-form {
+        margin-top: 0;
+        margin-bottom: 35px;
     }
 }
 
