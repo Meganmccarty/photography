@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from backend.models import Photo
+from backend.models import Photo, Category
 
 # photo serializer
 
@@ -21,4 +21,16 @@ class PhotoSerializer(serializers.ModelSerializer):
             'order',
             'alamy_url',
             'fine_art_america_url',
+        ]
+
+class CategorySerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Category
+        fields = [
+            'id',
+            'category_name',
+            'slug',
+            'category_image',
+            'category_image_alt',
         ]

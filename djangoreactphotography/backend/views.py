@@ -10,8 +10,8 @@ from rest_framework import status
 from rest_framework import generics
 
 from rest_framework import permissions
-from .models import Photo
-from .serializers import PhotoSerializer
+from .models import Photo, Category
+from .serializers import PhotoSerializer, CategorySerializer
 
 from rest_framework.permissions import IsAuthenticated
 
@@ -29,6 +29,11 @@ class PhotoList(generics.ListCreateAPIView):
         if category is not None:
             queryset = queryset.filter(category__slug=category)
         return queryset
+
+class CategoryList(generics.ListCreateAPIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
 
 class FrontendAppView(View):
     """
