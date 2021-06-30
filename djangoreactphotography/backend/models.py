@@ -24,6 +24,7 @@ class Category(models.Model):
     slug = models.CharField(max_length=100, blank=True)
     category_image = models.URLField()
     category_image_alt = models.CharField(max_length=100)
+    order = models.IntegerField(null=True, blank=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.category_name)

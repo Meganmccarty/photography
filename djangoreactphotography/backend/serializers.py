@@ -33,4 +33,5 @@ class CategorySerializer(serializers.ModelSerializer):
             'slug',
             'category_image',
             'category_image_alt',
+            'order'
         ]

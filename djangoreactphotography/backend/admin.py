@@ -20,10 +20,11 @@ class PhotoAdmin(admin.ModelAdmin):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('category_name', 'slug', 'category_image', 'category_image_alt')
+    list_display = ('category_name', 'slug', 'category_image', 'category_image_alt', 'order')
     fields = [
         'category_name',
         'slug',
         'category_image',
         'category_image_alt',
+        'order'
     ]

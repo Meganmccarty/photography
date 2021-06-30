@@ -32,7 +32,7 @@ class PhotoList(generics.ListCreateAPIView):
 
 class CategoryList(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    queryset = Category.objects.all()
+    queryset = Category.objects.all().order_by('order')
     serializer_class = CategorySerializer
 
 class FrontendAppView(View):
