@@ -20,35 +20,15 @@ import os
 
 class PhotoList(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    queryset = Photo.objects.filter(show=True).order_by('order')
     serializer_class = PhotoSerializer
 
-"""
-@api_view(['GET'])
-def api_login(self, request):
-    if request.method == 'GET':
-        print(request.user)
-        if request.user.is_authenticated():
-             content = {'message': 'Authenticated'}
-             return Response(content, status=200)
-        else:
-             content = {'message': 'Unauthenticated'}
-             return Response(content, status=401)
-"""
-
-"""
-@api_view(['POST'])
-@permission_classes([IsAuthenticated])
-def api_login(request):
-    username = request.data['username']
-    password = request.data['password']
-    user = authenticate(request, username='user', password='T3$7!ng123!')
-    if user is not None:
-        login(request, user)
-        return Response(status=status.HTTP_200_OK)
-    return Response(status=status.HTTP_400_BAD_REQUEST)
-
-"""
+    def get_queryset(self):
+        queryset = Photo.objects.filter(show=True).order_by('order')
+        category = self.request.query_params.get("category")
+        print(category)
+        if category is not None:
+            queryset = queryset.filter(category__slug=category)
+        return queryset
 
 class FrontendAppView(View):
     """

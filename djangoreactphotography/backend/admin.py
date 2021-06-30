@@ -1,5 +1,5 @@
 from django.contrib import admin
-from backend.models import Photo
+from backend.models import Photo, Category
 
 @admin.register(Photo)
 class PhotoAdmin(admin.ModelAdmin):
@@ -16,4 +16,14 @@ class PhotoAdmin(admin.ModelAdmin):
         'show',
         'order',
         ('alamy_url', 'fine_art_america_url'),
+    ]
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('category_name', 'slug', 'category_image', 'category_image_alt')
+    fields = [
+        'category_name',
+        'slug',
+        'category_image',
+        'category_image_alt',
     ]
