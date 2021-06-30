@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function HomeGalleryImage({ category, url, image, alt }) {
     const [isZoomed, setIsZoomed] = useState(false);
@@ -19,11 +19,11 @@ function HomeGalleryImage({ category, url, image, alt }) {
                 <img src={image} alt={alt}></img>
             </div>
 
-            <NavLink to={url}>
+            <Link to={url}>
                 <h2 onMouseEnter={handleZoomIn} onMouseLeave={handleZoomOut} className="gallery-button green">
                     {category}
                 </h2>
-            </NavLink>
+            </Link>
         </div>
     )
 }
