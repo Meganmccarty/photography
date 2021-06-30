@@ -29,8 +29,9 @@ How I need to restructure my website
         |--Footer.js
     |--MainContainer.js => This component will display a gallery of images (depending on state, either
         |--About.js        14 image categories or full gallery for a given category)
-        |--GalleryContainer.js
-            |--GalleryCard.js => This component will represent 1 individual image category to display in the gallery
+        |--HomeGallery.js
+            |--HomeGalleryImage.js => This component will represent 1 individual image category to display in the gallery
         |--PhotoContainer.js
             |--PhotoCard.js => This component will represent 1 individual image *from* a category to display in the gallery
+                |--ShopButtons.js
 */
