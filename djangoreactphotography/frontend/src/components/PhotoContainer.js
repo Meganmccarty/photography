@@ -49,7 +49,7 @@ function PhotoContainer() {
                 ]
             }
         >
-            <div className="Gallery">
+            <div className="gallery">
                 {photosToDisplay}
             </div>
         </LightgalleryProvider>

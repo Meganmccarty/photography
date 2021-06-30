@@ -6,10 +6,12 @@ import MainContainer from './MainContainer';
 function App() {
 
     return (
-        <div className="Main-container">
+        <div className="parent-container">
             <CopyrightText />
             <Navbar />
-            <MainContainer />
+            <div className="Main-container">
+                <MainContainer />
+            </div>
         </div>
     )
 

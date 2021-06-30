@@ -18,7 +18,7 @@ function HomeGallery() {
     })
 
     return (
-        <div className="Home-Gallery">
+        <div className="gallery">
             {categoriesToDisplay}
         </div>
     )
