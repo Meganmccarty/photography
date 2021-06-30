@@ -21,11 +21,10 @@ function About() {
             </p>
             <p>
                 Currently, Megan is a freelance web developer, and she built this site
-                using Django and React. She has a 
-                <a href="https://meganmccarty.github.io/portfolio/">separate website</a> 
-                (which she also built!) showcasing all of her web projects. In addition, you can 
-                view her code on Github, including 
-                <a href="https://github.com/Meganmccarty/photography">the code that went into 
+                using Django and React. She has a <a href="https://meganmccarty.github.io/portfolio/">separate website</a> (which 
+                she also built!) showcasing all of her web projects. In addition, you can 
+                view her code on Github, 
+                including <a href="https://github.com/Meganmccarty/photography"> the code that went into 
                 this website</a>!
             </p>
         </div>
