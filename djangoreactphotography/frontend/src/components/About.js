@@ -15,9 +15,9 @@ function About() {
                 animals, landscapes, and even the occasional building.
             </p>
             <p>
-                She sells her photos as digital downloads on 
-                <a href="https://www.alamy.com/portfolio/113387.html">Alamy</a> 
-                and as prints on <a href="https://shop.meganmccartyphotography.com">Fine Art America</a>.
+                She sells her photos as digital downloads 
+                on <a href="https://www.alamy.com/portfolio/113387.html">Alamy</a> and 
+                as prints on <a href="https://shop.meganmccartyphotography.com">Fine Art America</a>.
             </p>
             <p>
                 Currently, Megan is a freelance web developer, and she built this site
