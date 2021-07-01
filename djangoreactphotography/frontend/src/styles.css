@@ -180,6 +180,14 @@ footer img {
     width: 100%;
 }
 
+.gif-container {
+    margin-top: 150px;
+}
+
+#loading-gif {
+    width: 300px;
+}
+
 /* Next 3 classes control zoom effect */
 .zoom-container {
     overflow: hidden;
@@ -360,6 +368,10 @@ button.disabled, .button.disabled:hover {
     .contact-form {
         margin-top: 0;
         margin-bottom: 35px;
+    }
+
+    .gif-container {
+        margin-top: 20px;
     }
 }
 

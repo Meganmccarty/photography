@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { LightgalleryProvider } from "react-lightgallery";
 import { useParams } from 'react-router-dom';
 import PhotoCard from './PhotoCard';
+import loadingGIF from '../images/loading.gif';
 
 function PhotoContainer() {
     const [photos, setPhotos] = useState([]);
@@ -30,6 +31,10 @@ function PhotoContainer() {
             fineArtAmericaURL={photo.fine_art_america_url}
         />
     })
+
+    if (photos[0] === undefined) {
+        return <div className="gif-container"><img id="loading-gif" src={loadingGIF} alt="loading GIF"></img></div>
+    }
 
     return (
         <LightgalleryProvider
