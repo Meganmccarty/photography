@@ -1,5 +1,5 @@
 from django.contrib import admin
-from backend.models import Photo, Category
+from backend.models import Photo, Category, Message
 
 @admin.register(Photo)
 class PhotoAdmin(admin.ModelAdmin):
@@ -28,3 +28,7 @@ class CategoryAdmin(admin.ModelAdmin):
         'category_image_alt',
         'order'
     ]
+
+@admin.register(Message)
+class MessageAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'message')

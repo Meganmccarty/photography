@@ -1,4 +1,7 @@
 from django.db import models
+from django.core.mail import send_mail
+from django.http import HttpResponse
+from django.conf import settings
 from sorl.thumbnail import ImageField
 from django.template.defaultfilters import slugify
 
@@ -52,6 +55,27 @@ class Photo(models.Model):
 
     image = models.ImageField(null=True, blank=True, upload_to=generate_filename)
     s3_image_url = models.URLField(default='', null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+class Message(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.CharField(max_length=1000)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        created = self.pk is None
+        super().save(*args, **kwargs)
+        if created:
+            res = send_mail(
+                'New message from ' + self.name,
+                self.message,
+                self.email,
+                [settings.EMAIL_HOST_USER]
+            )
+        return HttpResponse('%s'%res)
 
     def __str__(self):
         return self.name

@@ -4,14 +4,14 @@ from django.contrib.auth import authenticate, login
 from django.conf import settings
 #from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
-from rest_framework.permissions import AllowAny
 from rest_framework import viewsets
 from rest_framework import status
 from rest_framework import generics
+from rest_framework.views import APIView
 
 from rest_framework import permissions
-from .models import Photo, Category
-from .serializers import PhotoSerializer, CategorySerializer
+from .models import Photo, Category, Message
+from .serializers import PhotoSerializer, CategorySerializer, MessageSerializer
 
 from rest_framework.permissions import IsAuthenticated
 
@@ -34,6 +34,16 @@ class CategoryList(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Category.objects.all().order_by('order')
     serializer_class = CategorySerializer
+
+class MessageList(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def post(self, request, format=None):
+        serializer = MessageSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'status': 'OK'})
+        return Response(serializer.errors, status=400)
 
 class FrontendAppView(View):
     """

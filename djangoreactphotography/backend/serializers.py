@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from backend.models import Photo, Category
+from backend.models import Photo, Category, Message
 
 # photo serializer
 
@@ -34,4 +34,15 @@ class CategorySerializer(serializers.ModelSerializer):
             'category_image',
             'category_image_alt',
             'order'
+        ]
+
+class MessageSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Message
+        fields = [
+            'name',
+            'email',
+            'message',
+            'created_at'
         ]
