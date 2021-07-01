@@ -70,7 +70,7 @@ function PhotoContainer() {
         >
             <div className="gallery-container">
                 <h1>{newCategory}</h1>
-                <PhotoFilter filter={filter} onFilter={handleFilter} />
+                <PhotoFilter filter={filter} onFilter={handleFilter} photos={photos}/>
                 <div className="gallery">
                     {photosToDisplay}
                 </div>
