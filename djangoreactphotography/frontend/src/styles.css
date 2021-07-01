@@ -155,6 +155,26 @@ footer img {
 
 /* ----- Galleries -----*/
 
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.filter {
+    width: 25%;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filter label {
+    font-size: 20px;
+}
+
 .gallery {
     display: flex;
     flex-wrap: wrap;
