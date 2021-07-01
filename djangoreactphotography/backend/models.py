@@ -9,18 +9,11 @@ class Category(models.Model):
     CATEGORY = (
         ('Animals', 'Animals'),
         ('Architecture', 'Architecture'),
-        ('Arthropods', 'Arthropods'),
-        ('Autumn', 'Autumn'),
-        ('Butterflies', 'Butterflies'),
-        ('Caterpillars', 'Caterpillars'),
-        ('Landscapes', 'Landscapes'),
-        ('Pets', 'Pets'),
+        ('Insects and Spiders', 'Insects and Spiders'),
+        ('Landscapes and Nature', 'Landscapes and Nature'),
+        ('Meteorology', 'Meteorology'),
         ('Plants and Flowers', 'Plants and Flowers'),
-        ('Spring', 'Spring'),
-        ('Sunsets and Skies', 'Sunsets and Skies'),
-        ('Water', 'Water'),
-        ('Weather', 'Weather'),
-        ('Winter', 'Winter'),
+        ('Seasons', 'Seasons'),
     )
 
     category_name = models.CharField(max_length=100, choices=CATEGORY)
@@ -44,6 +37,7 @@ class Photo(models.Model):
     date_taken = models.DateField(null=True, blank=True)
     location = models.CharField(max_length=100, null=True, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='photo_category')
+    subcategory = models.CharField(max_length=100, null=True, blank=True)
     show = models.BooleanField(default=True)
     order = models.IntegerField(null=True, blank=True)
     alamy_url = models.URLField(null=True, blank=True)

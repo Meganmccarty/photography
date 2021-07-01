@@ -17,6 +17,7 @@ class PhotoSerializer(serializers.ModelSerializer):
             'date_taken',
             'location',
             'category',
+            'subcategory',
             'show',
             'order',
             'alamy_url',

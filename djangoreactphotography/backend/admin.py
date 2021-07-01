@@ -12,6 +12,7 @@ class PhotoAdmin(admin.ModelAdmin):
         'alt_text',
         'date_taken',
         'category',
+        'subcategory',
         'location',
         'show',
         'order',
