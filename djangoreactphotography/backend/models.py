@@ -65,7 +65,7 @@ class Message(models.Model):
         if created:
             res = send_mail(
                 'New message from ' + self.name,
-                self.message,
+                self.message + '\n\nYou can respond to this message by sending your reply to ' + self.email,
                 self.email,
                 [settings.EMAIL_HOST_USER]
             )
