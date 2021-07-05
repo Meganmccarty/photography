@@ -9,7 +9,6 @@ class PhotoSerializer(serializers.ModelSerializer):
         model = Photo
         fields = [
             'id',
-            'image',
             's3_image_url',
             'name',
             'caption',

@@ -3,9 +3,8 @@ from backend.models import Photo, Category, Message
 
 @admin.register(Photo)
 class PhotoAdmin(admin.ModelAdmin):
-    list_display = ('name', 'image', 's3_image_url', 'category', 'caption', 'date_taken', 'location', 'show', 'order')
+    list_display = ('name', 's3_image_url', 'category', 'caption', 'date_taken', 'location', 'show', 'order')
     fields = [
-        'image',
         's3_image_url',
         'name',
         'caption',

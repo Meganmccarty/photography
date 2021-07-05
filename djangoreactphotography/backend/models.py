@@ -42,12 +42,6 @@ class Photo(models.Model):
     order = models.IntegerField(null=True, blank=True)
     alamy_url = models.URLField(null=True, blank=True)
     fine_art_america_url = models.URLField(null=True, blank=True)
-
-    def generate_filename(self, filename):
-        name = "%s/%s" % (self.category.lower(), filename)
-        return name
-
-    image = models.ImageField(null=True, blank=True, upload_to=generate_filename)
     s3_image_url = models.URLField(default='', null=True, blank=True)
 
     def __str__(self):
