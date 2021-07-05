@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PhotoFilter({ filter, onFilter, photos }) {
+function PhotoFilter({ filterSubCat, onFilterSubCat, filterProduct, onFilterProduct, photos }) {
     let subcategories = [];
     photos.map(photo => {
         if (!subcategories.includes(photo.subcategory)) {
@@ -12,12 +12,22 @@ function PhotoFilter({ filter, onFilter, photos }) {
 
     return (
         subcategories.length > 1 ?
-            <div className="filter">
-                <label>Filter by Subcategory</label>
-                <select className="form-control" value={filter} onChange={(e) => onFilter(e.target.value)}>
-                    <option>All</option>
-                    {subcategoriesToDisplay.map(subcategory => <option key={subcategory}>{subcategory[0].toUpperCase() + subcategory.slice(1)}</option>)}
-                </select>
+            <div className="filter-container">
+                <div className="filter">
+                    <label>Filter by Subcategory</label>
+                    <select className="form-control" value={filterSubCat} onChange={(e) => onFilterSubCat(e.target.value)}>
+                        <option>All</option>
+                        {subcategoriesToDisplay.map(subcategory => <option key={subcategory}>{subcategory[0].toUpperCase() + subcategory.slice(1)}</option>)}
+                    </select>
+                </div>
+                <div className="filter">
+                    <label>Filter by Product Availability</label>
+                    <select className="form-control" value={filterProduct} onChange={(e) => onFilterProduct(e.target.value)}>
+                        <option>All</option>
+                        <option>Digital Downloads</option>
+                        <option>Prints</option>
+                    </select>
+                </div>
             </div>
             : null
     )

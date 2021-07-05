@@ -7,7 +7,8 @@ import loadingGIF from '../images/loading.gif';
 
 function PhotoContainer() {
     const [photos, setPhotos] = useState([]);
-    const [filter, setFilter] = useState("All");
+    const [filterSubCat, setFilterSubCat] = useState("All");
+    const [filterProduct, setFilterProduct] = useState("All");
     const category = useParams().category;
     const newCategory = category.split("-").map(word => {
         if (word !== "and") {
@@ -16,20 +17,35 @@ function PhotoContainer() {
             return word;
         }
     }).join(" ");
-    
+
     useEffect(() => {
         fetch(`http://localhost:8000/api/photos/?category=${category}`)
             .then(response => response.json())
             .then(data => setPhotos(data))
     }, [category])
 
-    function handleFilter(value) {
-        setFilter(value);
+    function handleFilterSubCat(value) {
+        setFilterSubCat(value);
+    }
+
+    function handleFilterProduct(value) {
+        setFilterProduct(value);
     }
 
     const photosToDisplay = photos.filter(
-        photo => filter !== "All" ? photo.subcategory === filter.toLowerCase() : photo
+        photo => filterSubCat !== "All" ? photo.subcategory === filterSubCat.toLowerCase() : photo
     )
+        .filter( 
+            photo => {
+                if (filterProduct === "Digital Downloads") {
+                    return photo.alamy_url
+                } else if (filterProduct === "Prints") {
+                    return photo.fine_art_america_url
+                } else {
+                    return photo
+                }
+            }
+        )
         .map(photo => {
             return <PhotoCard
                 key={photo.id}
@@ -70,7 +86,12 @@ function PhotoContainer() {
         >
             <div className="gallery-container">
                 <h1>{newCategory}</h1>
-                <PhotoFilter filter={filter} onFilter={handleFilter} photos={photos}/>
+                <PhotoFilter
+                    filterSubCat={filterSubCat}
+                    onFilterSubCat={handleFilterSubCat}
+                    filterProduct={filterProduct}
+                    onFilterProduct={handleFilterProduct}
+                    photos={photos} />
                 <div className="gallery">
                     {photosToDisplay}
                 </div>
