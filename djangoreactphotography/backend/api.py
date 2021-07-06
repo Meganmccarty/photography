@@ -8,7 +8,7 @@ from .serializers import PhotoSerializer, CategorySerializer, MessageSerializer
 
 class PhotoViewSet(viewsets.ModelViewSet):
 
-    queryset = Photo.objects.filter(show=True).order_by('order')
+    queryset = Photo.objects.filter(show=True).order_by('photo_order')
     permission_classes = [permissions.IsAdminUser]
     serializer_class = PhotoSerializer
 

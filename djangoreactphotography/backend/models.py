@@ -10,7 +10,7 @@ class Category(models.Model):
         ('Animals', 'Animals'),
         ('Architecture', 'Architecture'),
         ('Insects and Spiders', 'Insects and Spiders'),
-        ('Landscapes and Nature', 'Landscapes and Nature'),
+        ('Nature', 'Nature'),
         ('Meteorology', 'Meteorology'),
         ('Plants and Flowers', 'Plants and Flowers'),
         ('Seasons', 'Seasons'),
@@ -20,7 +20,7 @@ class Category(models.Model):
     slug = models.CharField(max_length=100, blank=True)
     category_image = models.URLField()
     category_image_alt = models.CharField(max_length=100)
-    order = models.IntegerField(null=True, blank=True)
+    category_order = models.IntegerField(null=True, blank=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.category_name)
@@ -39,7 +39,7 @@ class Photo(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='photo_category')
     subcategory = models.CharField(max_length=100, null=True, blank=True)
     show = models.BooleanField(default=True)
-    order = models.IntegerField(null=True, blank=True)
+    photo_order = models.IntegerField(null=True, blank=True)
     alamy_url = models.URLField(null=True, blank=True)
     fine_art_america_url = models.URLField(null=True, blank=True)
     s3_image_url = models.URLField(default='', null=True, blank=True)

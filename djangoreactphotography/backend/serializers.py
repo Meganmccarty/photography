@@ -18,7 +18,7 @@ class PhotoSerializer(serializers.ModelSerializer):
             'category',
             'subcategory',
             'show',
-            'order',
+            'photo_order',
             'alamy_url',
             'fine_art_america_url',
         ]
@@ -33,7 +33,7 @@ class CategorySerializer(serializers.ModelSerializer):
             'slug',
             'category_image',
             'category_image_alt',
-            'order'
+            'category_order'
         ]
 
 class MessageSerializer(serializers.ModelSerializer):

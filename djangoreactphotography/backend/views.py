@@ -23,7 +23,7 @@ class PhotoList(generics.ListCreateAPIView):
     serializer_class = PhotoSerializer
 
     def get_queryset(self):
-        queryset = Photo.objects.filter(show=True).order_by('order')
+        queryset = Photo.objects.filter(show=True).order_by('photo_order')
         category = self.request.query_params.get("category")
         print(category)
         if category is not None:
@@ -32,7 +32,7 @@ class PhotoList(generics.ListCreateAPIView):
 
 class CategoryList(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    queryset = Category.objects.all().order_by('order')
+    queryset = Category.objects.all().order_by('category_order')
     serializer_class = CategorySerializer
 
 class MessageList(APIView):
