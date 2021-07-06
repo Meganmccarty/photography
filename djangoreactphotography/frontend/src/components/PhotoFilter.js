@@ -11,8 +11,9 @@ function PhotoFilter({ filterSubCat, onFilterSubCat, filterProduct, onFilterProd
     const subcategoriesToDisplay = [...subcategories].sort((a, b) => a > b ? 1 : -1);
 
     return (
-        subcategories.length > 1 ?
-            <div className="filter-container">
+        <div className="filter-container">
+            
+            { subcategories.length > 1 ?
                 <div className="filter">
                     <label>Filter by Subcategory</label>
                     <select className="form-control" value={filterSubCat} onChange={(e) => onFilterSubCat(e.target.value)}>
@@ -20,16 +21,18 @@ function PhotoFilter({ filterSubCat, onFilterSubCat, filterProduct, onFilterProd
                         {subcategoriesToDisplay.map(subcategory => <option key={subcategory}>{subcategory[0].toUpperCase() + subcategory.slice(1)}</option>)}
                     </select>
                 </div>
-                <div className="filter">
-                    <label>Filter by Product Availability</label>
-                    <select className="form-control" value={filterProduct} onChange={(e) => onFilterProduct(e.target.value)}>
-                        <option>All</option>
-                        <option>Digital Downloads</option>
-                        <option>Prints</option>
-                    </select>
-                </div>
+            : null }
+
+            <div className="filter">
+                <label>Filter by Product Availability</label>
+                <select className="form-control" value={filterProduct} onChange={(e) => onFilterProduct(e.target.value)}>
+                    <option>All</option>
+                    <option>Digital Downloads</option>
+                    <option>Prints</option>
+                </select>
             </div>
-            : null
+
+        </div>
     )
 }
 
