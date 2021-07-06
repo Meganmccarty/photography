@@ -3,9 +3,7 @@ import React from 'react';
 function PhotoFilter({ filterSubCat, onFilterSubCat, filterProduct, onFilterProduct, photos }) {
     let subcategories = [];
     photos.map(photo => {
-        if (!subcategories.includes(photo.subcategory)) {
-            return subcategories.push(photo.subcategory)
-        }
+        return subcategories.includes(photo.subcategory) ? null: subcategories.push(photo.subcategory)
     })
 
     const subcategoriesToDisplay = [...subcategories].sort((a, b) => a > b ? 1 : -1);
