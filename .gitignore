@@ -134,3 +134,4 @@ media/cache
 
 # Static admin files
 static/admin
+.DS_Store

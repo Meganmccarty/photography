@@ -4,14 +4,14 @@ from django.contrib.auth import authenticate, login
 from django.conf import settings
 #from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
-from rest_framework.permissions import AllowAny
 from rest_framework import viewsets
 from rest_framework import status
 from rest_framework import generics
+from rest_framework.views import APIView
 
 from rest_framework import permissions
-from .models import Photo
-from .serializers import PhotoSerializer
+from .models import Photo, Category, Message
+from .serializers import PhotoSerializer, CategorySerializer, MessageSerializer
 
 from rest_framework.permissions import IsAuthenticated
 
@@ -20,35 +20,30 @@ import os
 
 class PhotoList(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    queryset = Photo.objects.filter(show=True).order_by('order')
     serializer_class = PhotoSerializer
 
-"""
-@api_view(['GET'])
-def api_login(self, request):
-    if request.method == 'GET':
-        print(request.user)
-        if request.user.is_authenticated():
-             content = {'message': 'Authenticated'}
-             return Response(content, status=200)
-        else:
-             content = {'message': 'Unauthenticated'}
-             return Response(content, status=401)
-"""
+    def get_queryset(self):
+        queryset = Photo.objects.filter(show=True).order_by('photo_order')
+        category = self.request.query_params.get("category")
+        print(category)
+        if category is not None:
+            queryset = queryset.filter(category__slug=category)
+        return queryset
 
-"""
-@api_view(['POST'])
-@permission_classes([IsAuthenticated])
-def api_login(request):
-    username = request.data['username']
-    password = request.data['password']
-    user = authenticate(request, username='user', password='T3$7!ng123!')
-    if user is not None:
-        login(request, user)
-        return Response(status=status.HTTP_200_OK)
-    return Response(status=status.HTTP_400_BAD_REQUEST)
+class CategoryList(generics.ListCreateAPIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = Category.objects.all().order_by('category_order')
+    serializer_class = CategorySerializer
 
-"""
+class MessageList(APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def post(self, request, format=None):
+        serializer = MessageSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'status': 'OK'})
+        return Response(serializer.errors, status=400)
 
 class FrontendAppView(View):
     """

@@ -1,54 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import App from './components/App.js';
-/*import axios from 'axios';*/
 
 import 'semantic-ui-css/semantic.min.css';
 import 'lightgallery.js/dist/css/lightgallery.css';
 import './styles.css';
 import * as serviceWorker from './serviceWorker';
 
-/*axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
-axios.defaults.xsrfCookieName = "csrftoken";
-axios.defaults.withCredentials = true;*/
-
-/*const my_user_name = process.env.REACT_APP_USERNAME;*/ /* NOTE: Using environment variables throws console errors, yet website works fine */
-/*const my_password = process.env.REACT_APP_PASSWORD;*/  /*       Not sure how to fix the errors, but this secures sensitive data */
-
-/*axios.get('/api/photo-list/').then(resp => {
-    console.log('Response', resp)
-}).catch(err => {
-    console.log('Error', err.response.status)
-});*/
-
-/*axios.post('/photos/', { username: my_user_name, password: my_password }).then(rv => {
-    console.log('Login', rv)
-    axios.get('/api/photos/').then(resp => {
-        console.log('Response', resp)
-    }).catch(err => {
-        console.log('Error', err.response.status)
-    });
-}).catch(err => {
-    console.log('Login error', err.response)
-});*/
-
-/*const updatePhoto = () => {
-    axios.patch('https://meganmccarty.pythonanywhere.com/api/photo-list/').then(resp => {
-        console.log('Update response', resp)
-    }).catch(error => {
-        console.log("Update error", error)
-    })
-}*/
-
-/*axios.get('/api/').then(resp => {
-    console.log('Response', resp)
-}).catch(err => {
-    console.log('Error', err.response.status)
-});*/
-
 ReactDOM.render(
-    <App />,
-  document.getElementById('root')
+    <Router>
+        <App />
+    </Router>,
+    document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

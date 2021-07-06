@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='photo',
             name='image',
-            field=models.ImageField(blank=True, null=True, upload_to=backend.models.Photo.generate_filename),
+            field=models.ImageField(blank=True, null=True, upload_to="/"),
         ),
     ]
