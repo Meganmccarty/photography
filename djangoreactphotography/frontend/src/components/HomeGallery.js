@@ -6,7 +6,7 @@ function HomeGallery() {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/categories/')
+        fetch('https://www.meganmccartyphotography.com/api/categories/')
             .then(response => response.json())
             .then(data => setCategories(data))
             .catch(error => console.log(error))

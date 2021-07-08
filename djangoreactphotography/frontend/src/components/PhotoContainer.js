@@ -19,7 +19,7 @@ function PhotoContainer() {
     }).join(" ");
 
     useEffect(() => {
-        fetch(`http://localhost:8000/api/photos/?category=${category}`)
+        fetch(`https://www.meganmccartyphotography.com/api/photos/?category=${category}`)
             .then(response => response.json())
             .then(data => setPhotos(data))
     }, [category])
@@ -35,7 +35,7 @@ function PhotoContainer() {
     const photosToDisplay = photos.filter(
         photo => filterSubCat !== "All" ? photo.subcategory === filterSubCat.toLowerCase() : photo
     )
-        .filter( 
+        .filter(
             photo => {
                 if (filterProduct === "Digital Downloads") {
                     return photo.alamy_url

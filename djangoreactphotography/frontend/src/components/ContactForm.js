@@ -25,7 +25,7 @@ function ContactForm() {
             },
             body: JSON.stringify(formData)
         }
-        fetch('http://localhost:8000/api/messages/', configObj)
+        fetch('https://www.meganmccartyphotography.com/api/messages/', configObj)
             .then(response => response.json())
             .then(data => console.log(data))
             .catch(error => console.log(error))
